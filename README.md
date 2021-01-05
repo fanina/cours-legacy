@@ -1,1 +1,1 @@
-# cours-legacy
+# course-php-legacy-code
