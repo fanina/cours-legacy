@@ -2,6 +2,12 @@
 
 class UsersController
 {
+    private $user;
+
+    public fucntion __construct(Users $user)
+    {
+        $this->user = $user;
+    }
     public function defaultAction()
     {
         echo "users default";
@@ -9,8 +15,7 @@ class UsersController
     
     public function addAction()
     {
-        $user = new Users();
-        $form = $user->getRegisterForm();
+        $form = $this->user->getRegisterForm();
 
     
         $v = new View("addUser", "front");
@@ -19,8 +24,7 @@ class UsersController
 
     public function saveAction()
     {
-        $user = new Users();
-        $form = $user->getRegisterForm();
+        $form = $this->user->getRegisterForm();
         $method = strtoupper($form["config"]["method"]);
         $data = $GLOBALS["_".$method];
 
@@ -45,8 +49,7 @@ class UsersController
 
     public function loginAction()
     {
-        $user = new Users();
-        $form = $user->getLoginForm();
+        $form = $this->user->getLoginForm();
 
 
 
